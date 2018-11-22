@@ -1,0 +1,120 @@
+
+==================== Tidy Core ====================
+2018-11-15 14:43:40.2246353 UTC
+
+Result size of Tidy Core
+  = {terms: 67, types: 51, coercions: 0, joins: 0/0}
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule1_rhTL :: ghc-prim-0.5.2.0:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs]
+$trModule1_rhTL = "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule2_rhTZ :: ghc-prim-0.5.2.0:GHC.Types.TrName
+[GblId, Caf=NoCafRefs]
+$trModule2_rhTZ
+  = ghc-prim-0.5.2.0:GHC.Types.TrNameS $trModule1_rhTL
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule3_rhU0 :: ghc-prim-0.5.2.0:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs]
+$trModule3_rhU0 = "Main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule4_rhU1 :: ghc-prim-0.5.2.0:GHC.Types.TrName
+[GblId, Caf=NoCafRefs]
+$trModule4_rhU1
+  = ghc-prim-0.5.2.0:GHC.Types.TrNameS $trModule3_rhU0
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+Main.$trModule :: ghc-prim-0.5.2.0:GHC.Types.Module
+[GblId, Caf=NoCafRefs]
+Main.$trModule
+  = ghc-prim-0.5.2.0:GHC.Types.Module $trModule2_rhTZ $trModule4_rhU1
+
+-- RHS size: {terms: 49, types: 41, coercions: 0, joins: 0/0}
+main :: IO ()
+[GblId]
+main
+  = break<13>()
+    >>=
+      @ IO
+      GHC.Base.$fMonadIO
+      @ [String]
+      @ ()
+      (break<0>() getArgs)
+      (\ (args_ahOa :: [String]) ->
+         >>=
+           @ IO
+           GHC.Base.$fMonadIO
+           @ Problem
+           @ ()
+           (break<7>(args_ahOa)
+            case break<2>(args_ahOa)
+                 < @ Int
+                   ghc-prim-0.5.2.0:GHC.Classes.$fOrdInt
+                   (break<1>(args_ahOa)
+                    length @ [] Data.Foldable.$fFoldable[] @ String args_ahOa)
+                   (ghc-prim-0.5.2.0:GHC.Types.I# 1#)
+            of {
+              False ->
+                break<6>(args_ahOa)
+                runParser (break<5>(args_ahOa) head @ String args_ahOa);
+              True ->
+                >>
+                  @ IO
+                  GHC.Base.$fMonadIO
+                  @ ()
+                  @ Problem
+                  (break<3>()
+                   putStrLn
+                     (ghc-prim-0.5.2.0:GHC.CString.unpackCString#
+                        "Usage: pgreedy <inputFilePath>\n"#))
+                  (break<4>()
+                   runParser
+                     (ghc-prim-0.5.2.0:GHC.CString.unpackCString# "input/sample.txt"#))
+            })
+           (\ (problem_ahRF :: Problem) ->
+              >>=
+                @ IO
+                GHC.Base.$fMonadIO
+                @ [Solution]
+                @ ()
+                (break<9>(problem_ahRF)
+                 mapM
+                   @ []
+                   Data.Traversable.$fTraversable[]
+                   @ IO
+                   @ Inst
+                   @ Solution
+                   GHC.Base.$fMonadIO
+                   solveInstance
+                   (break<8>(problem_ahRF) insts problem_ahRF))
+                (\ (solutions_ahRG :: [Solution]) ->
+                   >>
+                     @ IO
+                     GHC.Base.$fMonadIO
+                     @ ()
+                     @ ()
+                     (break<11>(solutions_ahRG)
+                      mapM_
+                        @ []
+                        @ IO
+                        @ Solution
+                        @ ()
+                        Data.Foldable.$fFoldable[]
+                        GHC.Base.$fMonadIO
+                        (break<10>()
+                         . @ String @ (IO ()) @ Solution putStrLn formatSolution)
+                        solutions_ahRG)
+                     (break<12>()
+                      return
+                        @ IO GHC.Base.$fMonadIO @ () ghc-prim-0.5.2.0:GHC.Tuple.()))))
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+:Main.main :: IO ()
+[GblId]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+
